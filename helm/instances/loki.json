@@ -3,10 +3,9 @@
     "flavor": "helm_simple",
     "spec": {
         "helm": {
-            "chart": "bitnami/grafana-loki",
-            "repository": "https://charts.bitnami.com",
-            "wait": false,
-            "version": "2.0.3"
+            "chart": "grafana/loki-stack",
+            "repository": "https://grafana.github.io/helm-charts",
+            "wait": false
         },
         "env": []
 
