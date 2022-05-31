@@ -3,7 +3,7 @@
     "flavor": "helm_simple",
     "spec": {
         "helm": {
-            "chart": "grafana/loki-stack",
+            "chart": "loki-stack",
             "repository": "https://grafana.github.io/helm-charts",
             "wait": false
         },
