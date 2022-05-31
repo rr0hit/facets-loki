@@ -1,0 +1,15 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "flavor": "helm_simple",
+    "spec": {
+        "helm": {
+            "chart": "bitnami/grafana-loki",
+            "repository": "https://charts.bitnami.com/bitnami",
+            "wait": false,
+            "version": "2.0.3"
+        },
+        "env": []
+
+    }
+
+}
