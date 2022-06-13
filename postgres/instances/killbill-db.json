@@ -16,6 +16,6 @@
         "writer_count": 1,
         "writer_service_names": ["killbill-db-writer"],
         "writer_size": "S",
-        "databases": ["test"]
+        "databses": ["test"]
     }
 }
