@@ -1,0 +1,11 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/postgres/sizing_aurora.schema",
+    "L": "db.t4g.large",
+    "S": "db.t4g.medium",
+    "R6GL": "db.r6g.large",
+    "R6GXL": "db.r6g.xlarge",
+    "R6G2XL": "db.r6g.2xlarge",
+    "R6G4XL": "db.r6g.4xlarge",
+    "R6G8XL": "db.r6g.8xlarge",
+    "R6G16XL": "db.r6g.16xlarge"
+}

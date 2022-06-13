@@ -1,0 +1,76 @@
+{
+  "$schema": "https://docs.facets.cloud/schemas/application/instances/application.schema",
+  "kind": "facets.modules.common.application",
+  "disabled": false,
+  "apiVersion": "v2",
+  "metadata": {
+  },
+  "spec": {
+    "env": {
+      "KAUI_CONFIG_DAO_PASSWORD": {
+        "type": "credential",
+        "permissionName": "killbill-permissions",
+        "attribute": "password"
+      },
+      "KAUI_CONFIG_DAO_URL": {
+        "type": "static",
+        "default": "jdbc:postgresql://db:5432/kaui?currentSchema=kauischema"
+      },
+      "KAUI_CONFIG_DAO_USER": {
+        "type": "credential",
+        "permissionName": "killbill-permissions",
+        "attribute": "userName"
+      },
+      "KAUI_KILLBILL_URL": {
+          "type": "static",
+          "default": "http://killbill:8080"
+      },
+      "KAUI_CONFIG_DAO_ADAPTER": {
+        "type": "static",
+        "default": "postgresql"
+      }
+    },
+    "loadbalancing": {
+      "rules": [
+        {
+          "ingress": "ingress",
+          "path": "/",
+          "portName": "port8080",
+          "domainPrefix": "kaui"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "killbill-permissions",
+        "resourceType": "postgres",
+        "resourceName": "killbill-db",
+        "permission": "READ_WRITE"
+      }
+    ],
+    "release": {
+      "strategy": "RollingUpdate",
+      "build": {
+        "image": "killbill/kaui:latest"
+      }
+    },
+    "runtime": {
+      "size": {
+        "value": "small",
+        "namespace": "GP"
+      },
+      "autoscaling": {
+        "cpuThreshold": "50",
+        "max": 1,
+        "min": 1
+      },
+      "metrics": [{"portName": "custom-metrics", "path":"/prometheus"}],
+      "ports": [
+        {
+          "name": "port8080",
+          "port": 8080
+        }
+      ]
+    }
+  }
+}

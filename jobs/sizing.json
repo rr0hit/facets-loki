@@ -1,0 +1,8 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/application/sizing.schema",
+  
+    "small": {
+      "podCPULimit": 2,
+      "podMemoryLimit": 4
+    }
+}

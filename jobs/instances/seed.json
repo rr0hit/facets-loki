@@ -1,0 +1,44 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/jobs/instances/job.schema",
+    "apiVersion": "v2",
+    "disabled": false,
+    "kind": "facets.modules.common.application.job",
+    "metadata": {},
+    "spec": {
+        "env": {
+            "PGSQL_PASSWORD": {
+                "type": "credential",
+                "permissionName": "killbill-permissions",
+                "attribute": "password"
+              },
+              "PGSQL_HOST": {
+                "type": "static",
+                "default": "killbill-db"
+              },
+              "PGSQL_USER": {
+                "type": "credential",
+                "permissionName": "killbill-permissions",
+                "attribute": "userName"
+              }
+        },
+        "permission": [
+            {
+                "name": "killbill-permissions",
+                "resourceType": "postgres",
+                "resourceName": "killbill-db",
+                "permission": "MANAGEMENT"
+                
+            }
+        ],
+        "release": {
+            "build": {
+                "image": "ibbuu/killbill-postgres:1"
+            },
+            "strategy": "RollingUpdate"
+        },
+        "runtime": {
+            "size": {
+                "value": "small"            }
+        }
+    }
+}
