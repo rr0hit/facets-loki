@@ -37,7 +37,14 @@
         "name": "killbill-permissions",
         "resourceType": "postgres",
         "resourceName": "killbill-db",
-        "permission": "READ_WRITE"
+        "permission": "READ_WRITE",
+        "additional_options": {
+          "databases": {
+            "killbill": {
+              "schema": ["killbillschema"]
+            }
+          }
+        }
       }
     ],
     "release": {
