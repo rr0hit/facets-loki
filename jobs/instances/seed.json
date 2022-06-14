@@ -13,7 +13,7 @@
               },
               "PGSQL_HOST": {
                 "type": "static",
-                "default": "killbill-db"
+                "default": "killbill-db-writer"
               },
               "PGSQL_USER": {
                 "type": "credential",
@@ -46,7 +46,7 @@
         },
         "runtime": {
             "size": {
-                "value": "small"            }
+                "value": "small"}
         }
     }
 }
