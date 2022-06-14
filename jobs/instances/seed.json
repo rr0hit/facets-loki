@@ -40,7 +40,7 @@
         ],
         "release": {
             "build": {
-                "image": "ibbuu/killbill-postgres:2"
+                "image": "ibbuu/killbill-postgres:3"
             },
             "strategy": "RollingUpdate"
         },
