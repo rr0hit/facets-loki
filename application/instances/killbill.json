@@ -40,8 +40,8 @@
         "permission": "READ_WRITE_CREATE",
         "additional_options": {
           "databases": {
-            "killbill": {
-              "schema": ["killbillschema"]
+            "test": {
+              "schema": ["public"]
             }
           }
         }

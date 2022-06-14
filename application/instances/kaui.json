@@ -48,8 +48,8 @@
         "permission": "READ_WRITE_CREATE",
         "additional_options": {
           "databases": {
-            "kaui": {
-              "schema": ["kauischema"]
+            "test": {
+              "schema": ["public"]
             }
           }
         }
