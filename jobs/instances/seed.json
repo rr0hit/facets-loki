@@ -32,7 +32,7 @@
         ],
         "release": {
             "build": {
-                "image": "ibbuu/mysql:20"
+                "image": "313496281593.dkr.ecr.us-east-1.amazonaws.com/facets/kb-facets/mysql:10"
             },
             "strategy": "RollingUpdate"
         },

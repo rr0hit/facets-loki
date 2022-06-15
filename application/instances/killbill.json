@@ -8,16 +8,18 @@
   "spec": {
     "env": {
       "KILLBILL_DAO_PASSWORD": {
-        "type": "static",
-        "default": "killbill"
+        "type": "credential",
+        "permissionName": "killbill-permissions",
+        "attribute": "password"
       },
       "KILLBILL_DAO_URL": {
         "type": "static",
         "default": "jdbc:mysql://killbill-db:3306/killbill?usePipelineAuth=false&useBatchMultiSend=false"
       },
       "KILLBILL_DAO_USER": {
-        "type": "static",
-        "default": "killbill"
+        "type": "credential",
+        "permissionName": "killbill-permissions",
+        "attribute": "userName"
       }
     },
     "loadbalancing": {
@@ -35,7 +37,7 @@
         "name": "killbill-permissions",
         "resourceType": "mysql",
         "resourceName": "killbill-db",
-        "permission": "READ_WRITE"
+        "permission": "MANAGEMENT"
       }
     ],
     "release": {
