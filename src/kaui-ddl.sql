@@ -1,4 +1,5 @@
 create database IF NOT EXISTS kaui;
+GRANT ALL PRIVILEGES ON kaui.* TO 'killbill'@'%';
 /*! USE kaui */;
 CREATE TABLE IF NOT EXISTS kaui_users (
   id serial unique,

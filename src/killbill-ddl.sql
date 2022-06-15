@@ -1,5 +1,6 @@
 create user IF NOT EXISTS killbill identified by 'killbill';
 create database IF NOT EXISTS killbill;
+GRANT ALL PRIVILEGES ON killbill.* TO 'killbill'@'%';
 /*! USE killbill */;
 
 /*! SET default_storage_engine=INNODB */;
