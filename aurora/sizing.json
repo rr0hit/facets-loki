@@ -1,0 +1,12 @@
+{
+    "S": {
+      "class": "db.t3.small",
+      "vcpu": 2,
+      "memory": 2
+    },
+    "M": {
+      "class": "db.t3.medium",
+      "vcpu": 2,
+      "memory": 4
+    }
+  }

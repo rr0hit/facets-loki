@@ -6,16 +6,16 @@
     "metadata": {},
     "spec": {
         "env": {
-            "PGSQL_PASSWORD": {
+            "MYSQL_PASSWORD": {
                 "type": "credential",
                 "permissionName": "killbill-permissions",
                 "attribute": "password"
               },
-              "PGSQL_HOST": {
+              "MYSQL_HOST": {
                 "type": "static",
-                "default": "killbill-db-writer"
+                "default": "killbill-db"
               },
-              "PGSQL_USER": {
+              "MYSQL_USER": {
                 "type": "credential",
                 "permissionName": "killbill-permissions",
                 "attribute": "userName"
@@ -24,29 +24,21 @@
         "permission": [
             {
                 "name": "killbill-permissions",
-                "resourceType": "postgres",
+                "resourceType": "mysql",
                 "resourceName": "killbill-db",
-                "permission": "READ_WRITE_CREATE",
-                "additional_options": {
-                    "databases": {
-                      "test": {
-                        "schema": ["public"]
-                      }
-                    }
-                  }
-
+                "permission": "MANAGEMENT"
                 
             }
         ],
         "release": {
             "build": {
-                "image": "ibbuu/killbill-postgres:4"
+                "image": "313496281593.dkr.ecr.us-east-1.amazonaws.com/facets/kb-facets/mysql:10"
             },
             "strategy": "RollingUpdate"
         },
         "runtime": {
             "size": {
-                "value": "small"}
+                "value": "small"            }
         }
     }
 }

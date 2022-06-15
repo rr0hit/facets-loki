@@ -1,35 +1,19 @@
-import psycopg2
+import mysql.connector
 import os
-c = psycopg2.connect(database='test', user=os.getenv('PGSQL_USER'),password=os.getenv('PGSQL_PASSWORD'),host=os.getenv('PGSQL_HOST'),port='5432')
-cursor = c.cursor()
-autocommit = psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT
-print ("ISOLATION_LEVEL_AUTOCOMMIT:", psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
-c.set_isolation_level( autocommit )
-cursor.execute("CREATE ROLE killbilluser WITH LOGIN INHERIT CREATEDB CREATEROLE NOREPLICATION PASSWORD 'killbill';")
-cursor.execute("CREATE DATABASE killbill WITH OWNER = killbilluser;")
-cursor.execute("CREATE DATABASE kaui WITH OWNER = killbilluser;")
-c.close()
+mydb = mysql.connector.connect(user=os.getenv('MYSQL_USER'),
+                             password=os.getenv('MYSQL_PASSWORD'),
+                             host=os.getenv('MYSQL_HOST'))
+cur = mydb.cursor(dictionary=True)
+with open('killbill-ddl.sql', 'r') as f:
+    res = cur.execute(f.read(), multi=True)
+    for r in res:
+        print("Running query: ", r)  # Will print out a short representation of the query
+        print(f"Affected {r.rowcount} rows" )
+    mydb.commit()
 
-c = psycopg2.connect(database='killbill', user=os.getenv('PGSQL_USER'),password=os.getenv('PGSQL_PASSWORD'),host=os.getenv('PGSQL_HOST'),port='5432')
-cursor = c.cursor()
-autocommit = psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT
-print ("ISOLATION_LEVEL_AUTOCOMMIT:", psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
-c.set_isolation_level( autocommit )
-cursor.execute("CREATE SCHEMA killbillschema authorization killbilluser;")
-cursor.execute("set schema 'killbillschema';")
-cursor.execute(open("postgres-ddl.sql", "r").read())
-cursor.execute(open("killbill.sql", "r").read())
-cursor.execute("GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA killbillschema TO killbilluser;")
-c.close()
-
-c = psycopg2.connect(database='kaui', user=os.getenv('PGSQL_USER'),password=os.getenv('PGSQL_PASSWORD'),host=os.getenv('PGSQL_HOST'),port='5432')
-cursor = c.cursor()
-autocommit = psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT
-print ("ISOLATION_LEVEL_AUTOCOMMIT:", psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
-c.set_isolation_level( autocommit )
-cursor.execute("CREATE SCHEMA kauischema authorization killbilluser;")
-cursor.execute("set schema 'kauischema';")
-cursor.execute(open("postgres-ddl.sql", "r").read())
-cursor.execute(open("kaui.sql", "r").read())
-cursor.execute("GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA kauischema TO killbilluser;")
-c.close()
+with open('kaui-ddl.sql', 'r') as f:
+    res1 = cur.execute(f.read(), multi=True)
+    for r in res1:
+        print("Running query: ", r)  # Will print out a short representation of the query
+        print(f"Affected {r.rowcount} rows" )
+    mydb.commit()

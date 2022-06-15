@@ -1,3 +1,5 @@
+create user IF NOT EXISTS killbill identified by 'killbill';
+create database IF NOT EXISTS killbill;
 /*! USE killbill */;
 
 /*! SET default_storage_engine=INNODB */;

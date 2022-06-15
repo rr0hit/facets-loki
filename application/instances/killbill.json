@@ -14,7 +14,7 @@
       },
       "KILLBILL_DAO_URL": {
         "type": "static",
-        "default": "jdbc:postgresql://db:5432/killbill?currentSchema=killbillschema"
+        "default": "jdbc:mysql://killbill-db:3306/killbill?usePipelineAuth=false&useBatchMultiSend=false"
       },
       "KILLBILL_DAO_USER": {
         "type": "credential",
@@ -35,16 +35,9 @@
     "permission": [
       {
         "name": "killbill-permissions",
-        "resourceType": "postgres",
+        "resourceType": "mysql",
         "resourceName": "killbill-db",
-        "permission": "READ_WRITE_CREATE",
-        "additional_options": {
-          "databases": {
-            "test": {
-              "schema": ["public"]
-            }
-          }
-        }
+        "permission": "MANAGEMENT"
       }
     ],
     "release": {

@@ -1,0 +1,21 @@
+{
+    "enabled": true,
+    "creationStrategy": {
+      "triggerSchedule": [
+        "0 1 * * ? *"
+      ]
+    },
+    "retentionStrategy": {
+      "triggerSchedule": [
+        "0 2 * * ? *"
+      ],
+      "rollingWindow": {
+        "hours": 8,
+        "days": 15,
+        "weeks": 4,
+        "months": 6
+      },
+      "incrementalWindow": {
+      }
+    }
+  }
