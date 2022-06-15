@@ -35,7 +35,7 @@
         "name": "killbill-permissions",
         "resourceType": "mysql",
         "resourceName": "killbill-db",
-        "permission": "MANAGEMENT"
+        "permission": "READ_WRITE"
       }
     ],
     "release": {
