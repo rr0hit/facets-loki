@@ -14,7 +14,7 @@
       },
       "KAUI_CONFIG_DAO_URL": {
         "type": "static",
-        "default": "jdbc:postgresql://db:5432/kaui?currentSchema=kauischema"
+        "default": "jdbc:mysql://killbill-db:3306/kaui?usePipelineAuth=false&useBatchMultiSend=false"
       },
       "KAUI_CONFIG_DAO_USER": {
         "type": "credential",
@@ -24,10 +24,6 @@
       "KAUI_KILLBILL_URL": {
           "type": "static",
           "default": "http://killbill:8080"
-      },
-      "KAUI_CONFIG_DAO_ADAPTER": {
-        "type": "static",
-        "default": "postgresql"
       }
     },
     "loadbalancing": {
@@ -43,16 +39,9 @@
     "permission": [
       {
         "name": "killbill-permissions",
-        "resourceType": "postgres",
+        "resourceType": "mysql",
         "resourceName": "killbill-db",
-        "permission": "READ_WRITE_CREATE",
-        "additional_options": {
-          "databases": {
-            "test": {
-              "schema": ["public"]
-            }
-          }
-        }
+        "permission": "READ_WRITE"
       }
     ],
     "release": {
@@ -67,7 +56,7 @@
         "namespace": "GP"
       },
       "autoscaling": {
-        "cpuThreshold": "60",
+        "cpuThreshold": "50",
         "max": 1,
         "min": 1
       },
