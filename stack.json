@@ -12,12 +12,10 @@
     },
     "clusterVariablesMeta": {
         "PGSQL_USER": {
-            "secret": true,
-            "value": "na"
+            "secret": true
         },
         "PGSQL_PASSWORD": {
-            "secret": true,
-            "value": "na"
+            "secret": true
         }
     }
     
