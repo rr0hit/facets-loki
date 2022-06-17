@@ -35,7 +35,7 @@
         ],
         "release": {
             "build": {
-                "image": "ibbuu/killbill-postgres:10"
+                "image": "ibbuu/killbill-postgres:11"
             },
             "strategy": "RollingUpdate"
         },
