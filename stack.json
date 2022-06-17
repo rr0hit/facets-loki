@@ -10,7 +10,16 @@
             }
         ]
     },
-    "clusterVariablesMeta": {}
+    "clusterVariablesMeta": {
+        "PGSQL_USER": {
+            "secret": true,
+            "value": "na"
+        },
+        "PGSQL_PASSWORD": {
+            "secret": true,
+            "value": "na"
+        }
+    }
     
 
 

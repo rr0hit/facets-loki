@@ -8,16 +8,20 @@
   "spec": {
     "env": {
       "KILLBILL_DAO_PASSWORD": {
-        "type": "static",
-        "default": "dqFHQEhz6rl1"
+        "type": "dynamic",
+        "resourceType": "cluster",
+        "resourceName": "secrets",
+        "attribute": "PGSQL_PASSWORD"
       },
       "KILLBILL_DAO_URL": {
         "type": "static",
-        "default": "jdbc:mysql://killbill-db:3306/killbill?usePipelineAuth=false&useBatchMultiSend=false"
+        "default": "jdbc:postgresql://killbill-db1-writer:5432/killbill?currentSchema=killbillschema"
       },
       "KILLBILL_DAO_USER": {
-        "type": "static",
-        "default": "seed-TpeW"
+        "type": "dynamic",
+        "resourceType": "cluster",
+        "resourceName": "secrets",
+        "attribute": "PGSQL_USER"
       }
     },
     "loadbalancing": {
@@ -33,7 +37,7 @@
     "permission": [
       {
         "name": "killbill-permissions",
-        "resourceType": "mysql",
+        "resourceType": "aurora",
         "resourceName": "killbill-db",
         "permission": "READ_WRITE"
       }

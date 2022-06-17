@@ -8,20 +8,28 @@
   "spec": {
     "env": {
       "KAUI_CONFIG_DAO_PASSWORD": {
-        "type": "static",
-        "default": "dqFHQEhz6rl1"
+        "type": "dynamic",
+        "resourceType": "cluster",
+        "resourceName": "secrets",
+        "attribute": "PGSQL_PASSWORD"
       },
       "KAUI_CONFIG_DAO_URL": {
         "type": "static",
-        "default": "jdbc:mysql://killbill-db:3306/kaui?usePipelineAuth=false&useBatchMultiSend=false"
+        "default": "jdbc:postgresql://killbill-db1-writer:5432/kaui?currentSchema=kauischema"
       },
       "KAUI_CONFIG_DAO_USER": {
-        "type": "static",
-        "default": "seed-TpeW"
+        "type": "dynamic",
+        "resourceType": "cluster",
+        "resourceName": "secrets",
+        "attribute": "PGSQL_USER"
       },
       "KAUI_KILLBILL_URL": {
           "type": "static",
           "default": "http://killbill:8080"
+      },
+      "KAUI_CONFIG_DAO_ADAPTER": {
+        "type": "static",
+        "default": "postgresql"
       }
     },
     "loadbalancing": {
@@ -37,7 +45,7 @@
     "permission": [
       {
         "name": "killbill-permissions",
-        "resourceType": "mysql",
+        "resourceType": "aurora",
         "resourceName": "killbill-db",
         "permission": "READ_WRITE"
       }
@@ -54,7 +62,7 @@
         "namespace": "GP"
       },
       "autoscaling": {
-        "cpuThreshold": "50",
+        "cpuThreshold": "60",
         "max": 1,
         "min": 1
       },

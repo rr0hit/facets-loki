@@ -1,0 +1,14 @@
+{
+    "$schema": "https://docs.facets.cloud/schemas/helm/instances/helm.schema",
+    "flavor": "helm_simple",
+    "spec": {
+        "helm": {
+            "chart": "loki-stack",
+            "repository": "https://grafana.github.io/helm-charts",
+            "wait": false
+        },
+        "env": []
+
+    }
+
+}
