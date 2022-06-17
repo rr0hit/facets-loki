@@ -10,8 +10,14 @@
             }
         ]
     },
-    "clusterVariablesMeta": {}
-    
-
-
+    "clusterVariablesMeta": {
+        "POSTGRES_USER": {
+            "value": "na",
+            "secret": true
+        },
+        "POSTGRES_PASSWORD": {
+            "value": "na",
+            "secret": true
+        }
+    }
 }
