@@ -14,7 +14,7 @@
               },
               "PGSQL_HOST": {
                 "type": "static",
-                "default": "killbill-db1-writer"
+                "default": "killbill-db2-writer"
               },
               "PGSQL_USER": {
                 "type": "dynamic",

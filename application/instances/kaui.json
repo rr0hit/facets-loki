@@ -15,7 +15,7 @@
       },
       "KAUI_CONFIG_DAO_URL": {
         "type": "static",
-        "default": "jdbc:postgresql://killbill-db1-writer:5432/kaui?currentSchema=kauischema"
+        "default": "jdbc:postgresql://killbill-db2-writer:5432/kaui?currentSchema=kauischema"
       },
       "KAUI_CONFIG_DAO_USER": {
         "type": "dynamic",

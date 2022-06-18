@@ -15,7 +15,7 @@
       },
       "KILLBILL_DAO_URL": {
         "type": "static",
-        "default": "jdbc:postgresql://killbill-db1-writer:5432/killbill?currentSchema=killbillschema"
+        "default": "jdbc:postgresql://killbill-db2-writer:5432/killbill?currentSchema=killbillschema"
       },
       "KILLBILL_DAO_USER": {
         "type": "dynamic",
