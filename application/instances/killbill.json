@@ -45,7 +45,7 @@
     "release": {
       "strategy": "RollingUpdate",
       "build": {
-        "image": "killbill/killbill:latest"
+        "image": "killbill/killbill:0.22.26"
       }
     },
     "runtime": {

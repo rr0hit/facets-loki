@@ -53,7 +53,7 @@
     "release": {
       "strategy": "RollingUpdate",
       "build": {
-        "image": "killbill/kaui:latest"
+        "image": "killbill/kaui:2.0.9"
       }
     },
     "runtime": {
