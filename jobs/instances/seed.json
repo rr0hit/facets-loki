@@ -14,7 +14,7 @@
               },
               "PGSQL_HOST": {
                 "type": "static",
-                "default": "killbill-db2-writer"
+                "default": "killbill-db1-writer"
               },
               "PGSQL_USER": {
                 "type": "dynamic",
@@ -35,7 +35,7 @@
         ],
         "release": {
             "build": {
-                "image": "ibbuu/killbill-postgres:12"
+                "image": "ibbuu/killbill-postgres:21"
             },
             "strategy": "RollingUpdate"
         },
